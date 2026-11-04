@@ -1,0 +1,155 @@
+---
+import type { Content } from '../i18n/content';
+
+type Props = { content: Content };
+const { content } = Astro.props;
+---
+
+<section id="projects" class="section projects">
+  <div class="wrap">
+    <div class="reveal projects__intro">
+      <p class="section__eyebrow">02</p>
+      <h2 class="section__title">{content.projects.title}</h2>
+      <p class="section__lead">{content.projects.lead}</p>
+    </div>
+
+    <ol class="projects__list">
+      {
+        content.projects.items.map((project, index) => (
+          <li class="project reveal" style={`--delay: ${index * 60}ms`}>
+            <div class="project__meta">
+              <span class="project__index">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <p class="project__client">{project.client}</p>
+                <p class="project__role">
+                  {project.role} · {project.period}
+                </p>
+              </div>
+            </div>
+            <h3 class="project__title">{project.title}</h3>
+            <p class="project__summary">{project.summary}</p>
+            <ul class="project__stack">
+              {project.stack.map((tech) => (
+                <li>{tech}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+
+    <aside class="also reveal">
+      <h3 class="also__title">{content.projects.also.title}</h3>
+      <ul class="also__list">
+        {content.projects.also.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .projects__intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects__list {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .project {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .project__meta {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .project__index {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--accent);
+    font-size: 0.95rem;
+    min-width: 1.6rem;
+  }
+
+  .project__client {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .project__role {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .project__title {
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    color: var(--navy);
+  }
+
+  .project__summary {
+    color: var(--muted);
+    max-width: 62rem;
+  }
+
+  .project__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    color: var(--navy-soft);
+    font-size: 0.9rem;
+  }
+
+  .project__stack li::after {
+    content: '·';
+    margin-left: 0.7rem;
+    color: var(--line);
+  }
+
+  .project__stack li:last-child::after {
+    content: none;
+  }
+
+  .also {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--line);
+  }
+
+  .also__title {
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.85rem;
+  }
+
+  .also__list {
+    display: grid;
+    gap: 0.65rem;
+    color: var(--muted);
+  }
+
+  .also__list li {
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .also__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+</style>

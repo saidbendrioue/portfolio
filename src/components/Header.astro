@@ -1,0 +1,91 @@
+---
+import type { Content } from '../i18n/content';
+import { withBase, localizeHref } from '../i18n/content';
+
+type Props = { content: Content };
+const { content } = Astro.props;
+const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
+---
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="header__brand" href={localizeHref(content.locale, '')}>{content.hero.brand}</a>
+    <nav class="header__nav" aria-label="Primary">
+      <a href={localizeHref(content.locale, '#about')}>{content.nav.about}</a>
+      <a href={localizeHref(content.locale, '#projects')}>{content.nav.projects}</a>
+      <a href={localizeHref(content.locale, '#skills')}>{content.nav.skills}</a>
+      <a href={localizeHref(content.locale, '#contact')}>{content.nav.contact}</a>
+      <a class="header__cv" href={withBase('cv-said-bendrioue.pdf')} download>{content.nav.cv}</a>
+      <a class="header__lang" href={otherHref} hreflang={content.otherLocale} lang={content.otherLocale}>
+        {content.otherLocaleLabel}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 20;
+    padding: 1.15rem 0;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .header__brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .header__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.85rem 1.1rem;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .header__nav a {
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+  }
+
+  .header__nav a:hover {
+    color: var(--white);
+  }
+
+  .header__lang {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.25rem;
+  }
+
+  .header__cv {
+    display: none;
+  }
+
+  @media (min-width: 860px) {
+    .header__cv {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .header__nav a:not(.header__lang) {
+      display: none;
+    }
+  }
+</style>

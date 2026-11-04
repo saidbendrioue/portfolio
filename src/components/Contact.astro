@@ -1,0 +1,90 @@
+---
+import type { Content } from '../i18n/content';
+import { withBase } from '../i18n/content';
+
+type Props = { content: Content };
+const { content } = Astro.props;
+
+const email = 'bendrioue@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
+---
+
+<section id="contact" class="section contact">
+  <div class="wrap contact__panel reveal">
+    <div>
+      <p class="section__eyebrow">04</p>
+      <h2 class="section__title">{content.contact.title}</h2>
+      <p class="section__lead">{content.contact.lead}</p>
+    </div>
+
+    <div class="contact__actions">
+      <a class="contact__link" href={`mailto:${email}`}>
+        <span>{content.contact.emailLabel}</span>
+        <strong>{email}</strong>
+      </a>
+      <a class="contact__link" href={linkedin} target="_blank" rel="noopener noreferrer">
+        <span>{content.contact.linkedinLabel}</span>
+        <strong>in/Said-Bendrioue</strong>
+      </a>
+      <a class="btn btn--outline" href={withBase('cv-said-bendrioue.pdf')} download>
+        {content.contact.cvLabel}
+      </a>
+      <p class="contact__note">{content.contact.cvNote}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact__panel {
+    display: grid;
+    gap: 2rem;
+    padding: 2.25rem 0;
+  }
+
+  .contact__actions {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .contact__link {
+    display: grid;
+    gap: 0.15rem;
+    text-decoration: none;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact__link span {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .contact__link strong {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .contact__link:hover strong {
+    color: var(--accent);
+  }
+
+  .contact__note {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  @media (min-width: 860px) {
+    .contact__panel {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: end;
+    }
+  }
+</style>

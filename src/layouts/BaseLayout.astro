@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+import type { Content } from '../i18n/content';
+import { withBase } from '../i18n/content';
+import Header from '../components/Header.astro';
+
+type Props = {
+  content: Content;
+};
+
+const { content } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={content.locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={content.meta.description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>{content.meta.title}</title>
+  </head>
+  <body>
+    <div class="site">
+      <Header content={content} />
+      <main>
+        <slot />
+      </main>
+      <footer class="footer">
+        <div class="wrap footer__inner">
+          <p>{content.footer.rights}</p>
+          <p class="footer__loc">{content.about.location}</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const reveal = () => {
+        const nodes = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+          nodes.forEach((n) => n.classList.add('is-visible'));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16, rootMargin: '0px 0px -8% 0px' },
+        );
+        nodes.forEach((n) => io.observe(n));
+      };
+      reveal();
+    </script>
+  </body>
+</html>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 0 2.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: space-between;
+  }
+
+  .footer__loc {
+    color: var(--navy-soft);
+  }
+</style>

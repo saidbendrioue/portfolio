@@ -1,0 +1,20 @@
+---
+import type { Content } from '../i18n/content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Projects from './Projects.astro';
+import Skills from './Skills.astro';
+import Contact from './Contact.astro';
+
+type Props = { content: Content };
+const { content } = Astro.props;
+---
+
+<BaseLayout content={content}>
+  <Hero content={content} />
+  <About content={content} />
+  <Projects content={content} />
+  <Skills content={content} />
+  <Contact content={content} />
+</BaseLayout>
