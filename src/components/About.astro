@@ -5,7 +5,7 @@ type Props = { content: Content };
 const { content } = Astro.props;
 ---
 
-<section id="about" class="section about">
+<section id="about" class="section section--alt about">
   <div class="wrap about__grid">
     <div class="reveal">
       <p class="section__eyebrow">01</p>
@@ -21,20 +21,23 @@ const { content } = Astro.props;
 <style>
   .about__grid {
     display: grid;
-    gap: 1.75rem 3rem;
+    gap: 1.75rem 3.5rem;
   }
 
   .about__loc {
     color: var(--accent);
-    font-family: var(--font-display);
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   .about__body {
     display: grid;
     gap: 1.1rem;
-    color: var(--muted);
-    font-size: 1.08rem;
+    color: var(--ink-secondary);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
   }
 
   @media (min-width: 860px) {
