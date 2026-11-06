@@ -13,8 +13,10 @@ const { content } = Astro.props;
 
 <BaseLayout content={content}>
   <Hero content={content} />
-  <About content={content} />
-  <Projects content={content} />
-  <Skills content={content} />
-  <Contact content={content} />
+  <div class="ledger">
+    <About content={content} />
+    <Projects content={content} />
+    <Skills content={content} />
+    <Contact content={content} />
+  </div>
 </BaseLayout>

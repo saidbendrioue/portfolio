@@ -12,7 +12,6 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
 <section id="contact" class="section contact">
   <div class="wrap contact__panel reveal">
     <div>
-      <p class="section__eyebrow">04</p>
       <h2 class="section__title">{content.contact.title}</h2>
       <p class="section__lead">{content.contact.lead}</p>
     </div>
@@ -37,13 +36,13 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
 <style>
   .contact__panel {
     display: grid;
-    gap: 2.25rem;
-    padding: 0.5rem 0 1rem;
+    gap: 2rem;
+    padding: 0.25rem 0 0.5rem;
   }
 
   .contact__actions {
     display: grid;
-    gap: 0.85rem;
+    gap: 1rem;
     align-content: start;
   }
 
@@ -51,49 +50,42 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
     display: grid;
     gap: 0.2rem;
     text-decoration: none;
-    padding: 0.95rem 1rem;
-    border-radius: 1rem;
-    background: var(--surface);
-    box-shadow:
-      0 0.5px 0 rgba(255, 255, 255, 0.7) inset,
-      0 6px 20px rgba(0, 0, 0, 0.04);
-    transition:
-      transform var(--press),
-      box-shadow 0.25s var(--spring);
+    padding-bottom: 0.85rem;
+    border-bottom: var(--hairline);
   }
 
   .contact__link:hover {
     color: inherit;
   }
 
-  .contact__link:active {
-    transform: scale(0.985);
+  .contact__link:hover strong {
+    color: var(--accent);
   }
 
   .contact__link span {
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--muted);
   }
 
   .contact__link strong {
-    font-size: 1.2rem;
-    font-weight: 650;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
 
   .contact__note {
-    color: var(--ink-secondary);
+    color: var(--muted);
     font-size: 0.875rem;
-    letter-spacing: 0.01em;
   }
 
   @media (min-width: 860px) {
     .contact__panel {
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 3rem;
       align-items: end;
     }

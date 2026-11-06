@@ -72,7 +72,7 @@ const fr: Content = {
   meta: {
     title: 'Said Bendrioue — Développeur Fullstack Senior',
     description:
-      'Portfolio de Said Bendrioue, développeur Fullstack Senior Java/Angular et Scrum Master à Nice. Systèmes critiques, vote électronique, bancaire.',
+      'Said Bendrioue, développeur Fullstack Senior Java/Angular et Scrum Master à Nice. Systèmes critiques : vote électronique, La Poste, bancaire.',
   },
   nav: {
     about: 'À propos',
@@ -84,105 +84,101 @@ const fr: Content = {
   hero: {
     brand: 'Said Bendrioue',
     role: 'Développeur Fullstack Senior · Scrum Master',
-    headline: 'Des systèmes critiques, fiables et conformes.',
-    lead: 'Java / Spring Boot / Angular — vote électronique, prestations sociales et parcours bancaires omnicanaux.',
-    ctaPrimary: 'Me contacter',
+    headline: 'Systèmes critiques, tenus en production.',
+    lead: 'Java / Spring Boot / Angular — vote électronique, prestations sociales La Poste, parcours bancaires omnicanaux.',
+    ctaPrimary: 'Prendre contact',
     ctaSecondary: 'Télécharger le CV',
     photoAlt: 'Portrait de Said Bendrioue',
   },
   about: {
     title: 'À propos',
     body: [
-      'Développeur Fullstack Senior avec 7 ans d’expérience, spécialisé dans la conception de systèmes critiques à haute disponibilité, forte sécurité et conformité réglementaire (vote électronique, données financières, secteur bancaire).',
-      'Expert de l’écosystème Java / Spring Boot et des architectures Angular / TypeScript, avec une maîtrise éprouvée des migrations de bases à forte volumétrie et des pipelines CI/CD. Scrum Master reconnu pour fédérer des équipes autour d’exigences de production strictes (RGPD, CNIL).',
+      'Fullstack senior (7 ans) sur des systèmes où la panne n’est pas une option : haute disponibilité, sécurité et conformité (vote électronique, données financières, bancaire).',
+      'Socle Java / Spring Boot et Angular / TypeScript, migrations de bases à forte volumétrie, CI/CD. Scrum Master pour des équipes sous contraintes RGPD / CNIL. Ouvert au CDI (Nice / hybride) et aux missions freelance.',
     ],
-    location: 'Basé à Nice, France',
+    location: 'Nice, France',
   },
   projects: {
     title: 'Projets phares',
-    lead: 'Quatre missions où fiabilité, sécurité et livraison Agile ont fait la différence.',
+    lead: 'Quatre missions où fiabilité et conformité ont pesé autant que la livraison.',
     items: [
       {
         client: 'Docaposte / Voxaly',
-        role: 'Développeur Fullstack Java/Angular · Scrum Master',
+        role: 'Fullstack Java/Angular · Scrum Master',
         period: '08/2023 – aujourd’hui',
         title: 'Vote électronique — élections professionnelles',
         summary:
-          'Plateforme cloud de confiance numérique pour les scrutins de la fonction publique (165 M+ électeurs, 2 000+ organisations). Architecture des modules critiques du cycle électoral (émargement, urne chiffrée, dépouillement), conformité CNIL/RGPD, résilience DDoS, et pilotage Scrum (+15 % de vélocité).',
+          'Plateforme de confiance numérique pour les scrutins de la fonction publique (échelle : 165 M+ électeurs, 2 000+ organisations). Modules critiques du cycle électoral (émargement, urne chiffrée, dépouillement), conformité CNIL/RGPD, résilience sous charge et DDoS, animation Scrum de l’équipe.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'TLS', 'GitLab CI/CD'],
       },
       {
         client: 'Docaposte — EAS / La Poste',
-        role: 'Développeur Fullstack · Scrum Master',
-        period: 'Au sein de Docaposte / Voxaly',
+        role: 'Fullstack · Scrum Master',
+        period: '2023–2024 · même période Docaposte',
         title: 'EAS — Espace Activités Sociales',
         summary:
-          'Portail B2E sécurisé des prestations sociales La Poste (Chèque-Vacances, CESU, Chèque Culture). API REST sécurisées (JWT), SPA Angular (RxJS, NgRx), workflow Front/Back-Office, GED et conformité RGPD sur données sensibles (IBAN, RH).',
+          'Portail B2E des prestations sociales La Poste (Chèque-Vacances, CESU, Chèque Culture). API REST sécurisées (JWT), SPA Angular (RxJS, NgRx), workflow Front/Back-Office, GED et contrôles RGPD sur données sensibles (IBAN, RH).',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'RGPD', 'GED'],
       },
       {
         client: 'La Poste Groupe',
-        role: 'Développeur Backend Java',
+        role: 'Backend Java',
         period: '01/2023 – 07/2023',
         title: 'Timbre électronique',
         summary:
-          'Plateforme nationale de commande et de génération de timbres électroniques. Microservices Spring Boot, API REST et Kafka pour fiabilité et traçabilité ; tests Robot Framework / JUnit ; CI/CD et collaboration métier, QA et DevOps.',
+          'Plateforme nationale de commande et de génération de timbres électroniques. Microservices Spring Boot, API REST et Kafka pour fiabilité et traçabilité ; tests Robot Framework / JUnit ; CI/CD avec métier, QA et DevOps.',
         stack: ['Java 17', 'Spring Boot', 'Kafka', 'PostgreSQL', 'Docker', 'Kubernetes', 'Jenkins'],
       },
       {
         client: 'Crédit Agricole Technologies et Services',
-        role: 'Développeur Fullstack Java/Angular',
+        role: 'Fullstack Java/Angular',
         period: '05/2022 – 12/2022',
         title: 'Parcours omnicanal — changement d’adresse',
         summary:
-          'Refonte nationale du parcours de mise à jour d’adresse (squad Clients, Offres, Liens). Propagation synchrone/asynchrone vers le SI bancaire, validation postale, audit réglementaire, couverture de tests > 90 % et qualité SonarQube.',
+          'Refonte nationale du parcours de mise à jour d’adresse. Propagation synchrone/asynchrone vers le SI bancaire, validation postale, piste d’audit réglementaire, couverture de tests > 90 % et gates SonarQube.',
         stack: ['Java', 'Spring Boot', 'Angular', 'Oracle', 'Jenkins', 'SonarQube', 'JUnit'],
       },
     ],
     also: {
       title: 'Aussi',
       items: [
-        'Bilans Service (Docaposte) — migration Oracle → PostgreSQL, modernisation du portail Vega NextGen, CI/CD Jenkins/GitLab.',
-        'Bouygues Construction IT — modernisation e-Doc (GED) Java 6/GWT → Java 11/Angular pour le pilotage mondial des chantiers.',
+        'Bilans Service (Docaposte) — migration Oracle → PostgreSQL, portail Vega NextGen, CI/CD Jenkins/GitLab.',
+        'Bouygues Construction IT — modernisation e-Doc (GED) Java 6/GWT → Java 11/Angular.',
       ],
     },
   },
   skills: {
     title: 'Compétences',
-    lead: 'Un socle fullstack orienté production, sécurité et livraison continue.',
+    lead: 'Ce qui sert vraiment en production — pas un catalogue.',
     groups: [
       {
         label: 'Backend',
-        items: ['Java 17', 'Spring Boot', 'Hibernate', 'API REST', 'Kafka', 'ActiveMQ', 'Elasticsearch'],
+        items: ['Java 17', 'Spring Boot', 'Hibernate', 'API REST', 'Kafka', 'PostgreSQL', 'Oracle'],
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'HTML', 'SCSS'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
       },
       {
-        label: 'Architecture & tests',
-        items: ['Microservices', 'CQRS', 'Event Sourcing', 'JUnit 5', 'Mockito', 'SonarQube'],
+        label: 'Livraison',
+        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'JUnit 5', 'SonarQube'],
       },
       {
-        label: 'DevOps & données',
-        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'PostgreSQL', 'Oracle', 'SQL Server'],
-      },
-      {
-        label: 'Sécurité & Agile',
-        items: ['TLS', 'RGPD', 'CNIL', 'Scrum Master', 'Jira', 'Confluence'],
+        label: 'Contexte',
+        items: ['Microservices', 'RGPD / CNIL', 'TLS', 'Scrum Master'],
       },
     ],
   },
   contact: {
     title: 'Contact',
-    lead: 'Ouvert aux opportunités CDI et missions freelance. Écrivons-nous.',
+    lead: 'Ouvert au CDI (Nice / hybride) et aux missions freelance. Un email suffit.',
     emailLabel: 'Email',
     linkedinLabel: 'LinkedIn',
     cvLabel: 'Télécharger le CV (PDF)',
-    cvNote: 'Le CV PDF contient les coordonnées complètes.',
+    cvNote: 'Le PDF inclut les coordonnées complètes.',
   },
   footer: {
-    rights: 'Said Bendrioue — Portfolio',
+    rights: 'Said Bendrioue',
   },
 };
 
@@ -194,7 +190,7 @@ const en: Content = {
   meta: {
     title: 'Said Bendrioue — Senior Fullstack Developer',
     description:
-      'Portfolio of Said Bendrioue, Senior Fullstack Java/Angular developer and Scrum Master based in Nice. Critical systems, e-voting, banking.',
+      'Said Bendrioue, Senior Fullstack Java/Angular developer and Scrum Master in Nice. Critical systems: e-voting, La Poste, banking.',
   },
   nav: {
     about: 'About',
@@ -206,8 +202,8 @@ const en: Content = {
   hero: {
     brand: 'Said Bendrioue',
     role: 'Senior Fullstack Developer · Scrum Master',
-    headline: 'Critical systems built for trust and uptime.',
-    lead: 'Java / Spring Boot / Angular — e-voting, social benefits platforms, and omnichannel banking journeys.',
+    headline: 'Critical systems, kept in production.',
+    lead: 'Java / Spring Boot / Angular — e-voting, La Poste social benefits, omnichannel banking journeys.',
     ctaPrimary: 'Get in touch',
     ctaSecondary: 'Download CV',
     photoAlt: 'Portrait of Said Bendrioue',
@@ -215,103 +211,99 @@ const en: Content = {
   about: {
     title: 'About',
     body: [
-      'Senior Fullstack developer with 7 years of experience designing high-availability, security-first systems under regulatory constraints (e-voting, financial data, banking).',
-      'Deep expertise in Java / Spring Boot and Angular / TypeScript architectures, large-scale database migrations, and CI/CD pipelines. Trusted Scrum Master who aligns teams around strict production and compliance requirements (GDPR, CNIL).',
+      'Senior fullstack engineer (7 years) on systems where downtime is not an option: high availability, security, and regulatory compliance (e-voting, financial data, banking).',
+      'Java / Spring Boot and Angular / TypeScript, large-scale database migrations, CI/CD. Scrum Master for teams under GDPR / CNIL constraints. Open to permanent roles (Nice / hybrid) and freelance engagements.',
     ],
-    location: 'Based in Nice, France',
+    location: 'Nice, France',
   },
   projects: {
     title: 'Featured projects',
-    lead: 'Four engagements where reliability, security, and Agile delivery mattered most.',
+    lead: 'Four engagements where reliability and compliance weighed as much as delivery.',
     items: [
       {
         client: 'Docaposte / Voxaly',
-        role: 'Fullstack Java/Angular Developer · Scrum Master',
+        role: 'Fullstack Java/Angular · Scrum Master',
         period: '08/2023 – present',
         title: 'Electronic voting — professional elections',
         summary:
-          'Trusted digital cloud platform for public-sector ballots (165M+ voters, 2,000+ client organizations). Critical electoral modules (check-in, encrypted ballot box, counting), CNIL/GDPR compliance, DDoS resilience, and Scrum leadership (+15% velocity).',
+          'Trusted digital platform for public-sector ballots (platform scale: 165M+ voters, 2,000+ organizations). Critical electoral modules (check-in, encrypted ballot box, counting), CNIL/GDPR compliance, load and DDoS resilience, Scrum leadership for the team.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'TLS', 'GitLab CI/CD'],
       },
       {
         client: 'Docaposte — EAS / La Poste',
-        role: 'Fullstack Developer · Scrum Master',
-        period: 'Within Docaposte / Voxaly',
+        role: 'Fullstack · Scrum Master',
+        period: '2023–2024 · same Docaposte tenure',
         title: 'EAS — Social Benefits Portal',
         summary:
-          'Secure B2E portal for La Poste social benefits (holiday vouchers, CESU, culture vouchers). Secured REST APIs (JWT), Angular SPA (RxJS, NgRx), front/back-office workflows, document management, and GDPR controls on sensitive data.',
+          'B2E portal for La Poste social benefits (holiday vouchers, CESU, culture vouchers). Secured REST APIs (JWT), Angular SPA (RxJS, NgRx), front/back-office workflows, document management, and GDPR controls on sensitive data.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'GDPR', 'ECM'],
       },
       {
         client: 'La Poste Groupe',
-        role: 'Backend Java Developer',
+        role: 'Backend Java',
         period: '01/2023 – 07/2023',
         title: 'Electronic stamp platform',
         summary:
-          'National platform for ordering and generating electronic stamps. Spring Boot microservices, REST APIs and Kafka for reliability and traceability; Robot Framework / JUnit tests; CI/CD with product, QA, and DevOps partners.',
+          'National platform for ordering and generating electronic stamps. Spring Boot microservices, REST APIs and Kafka for reliability and traceability; Robot Framework / JUnit tests; CI/CD with product, QA, and DevOps.',
         stack: ['Java 17', 'Spring Boot', 'Kafka', 'PostgreSQL', 'Docker', 'Kubernetes', 'Jenkins'],
       },
       {
         client: 'Crédit Agricole Technologies et Services',
-        role: 'Fullstack Java/Angular Developer',
+        role: 'Fullstack Java/Angular',
         period: '05/2022 – 12/2022',
         title: 'Omnichannel address-change journey',
         summary:
-          'Nationwide redesign of the customer address-update journey. Sync/async propagation to the core banking SI, postal validation, regulatory audit trail, >90% unit-test coverage, and SonarQube quality gates.',
+          'Nationwide redesign of the customer address-update journey. Sync/async propagation to core banking, postal validation, regulatory audit trail, >90% unit-test coverage, SonarQube gates.',
         stack: ['Java', 'Spring Boot', 'Angular', 'Oracle', 'Jenkins', 'SonarQube', 'JUnit'],
       },
     ],
     also: {
       title: 'Also',
       items: [
-        'Bilans Service (Docaposte) — Oracle → PostgreSQL migration, Vega NextGen portal modernization, Jenkins/GitLab CI/CD.',
-        'Bouygues Construction IT — e-Doc (ECM) modernization from Java 6/GWT to Java 11/Angular for global worksite governance.',
+        'Bilans Service (Docaposte) — Oracle → PostgreSQL migration, Vega NextGen portal, Jenkins/GitLab CI/CD.',
+        'Bouygues Construction IT — e-Doc (ECM) modernization Java 6/GWT → Java 11/Angular.',
       ],
     },
   },
   skills: {
     title: 'Skills',
-    lead: 'A production-minded fullstack toolkit centered on security and continuous delivery.',
+    lead: 'What actually ships in production — not a laundry list.',
     groups: [
       {
         label: 'Backend',
-        items: ['Java 17', 'Spring Boot', 'Hibernate', 'REST APIs', 'Kafka', 'ActiveMQ', 'Elasticsearch'],
+        items: ['Java 17', 'Spring Boot', 'Hibernate', 'REST APIs', 'Kafka', 'PostgreSQL', 'Oracle'],
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'HTML', 'SCSS'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
       },
       {
-        label: 'Architecture & testing',
-        items: ['Microservices', 'CQRS', 'Event Sourcing', 'JUnit 5', 'Mockito', 'SonarQube'],
+        label: 'Delivery',
+        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'JUnit 5', 'SonarQube'],
       },
       {
-        label: 'DevOps & data',
-        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'PostgreSQL', 'Oracle', 'SQL Server'],
-      },
-      {
-        label: 'Security & Agile',
-        items: ['TLS', 'GDPR', 'CNIL', 'Scrum Master', 'Jira', 'Confluence'],
+        label: 'Context',
+        items: ['Microservices', 'GDPR / CNIL', 'TLS', 'Scrum Master'],
       },
     ],
   },
   contact: {
     title: 'Contact',
-    lead: 'Open to permanent roles and freelance engagements. Let’s talk.',
+    lead: 'Open to permanent roles (Nice / hybrid) and freelance work. An email is enough.',
     emailLabel: 'Email',
     linkedinLabel: 'LinkedIn',
     cvLabel: 'Download CV (PDF)',
-    cvNote: 'The PDF CV includes full contact details.',
+    cvNote: 'The PDF includes full contact details.',
   },
   footer: {
-    rights: 'Said Bendrioue — Portfolio',
+    rights: 'Said Bendrioue',
   },
 };
 
 export const contentByLocale: Record<Locale, Content> = { fr, en };
 
 export function withBase(path: string): string {
-  const base = import.meta.env.BASE_URL; // includes trailing slash
+  const base = import.meta.env.BASE_URL;
   const cleaned = path.replace(/^\//, '');
   return `${base}${cleaned}`;
 }
