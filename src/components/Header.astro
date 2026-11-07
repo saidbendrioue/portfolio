@@ -49,7 +49,7 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
     position: fixed;
     inset: 0 0 auto;
     z-index: 40;
-    background: var(--ink);
+    background: var(--color-primary);
     border-bottom: 1px solid transparent;
     transition:
       background-color 0.28s var(--ease),
@@ -57,8 +57,8 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
   }
 
   .chrome.is-solid {
-    background: color-mix(in oklab, var(--paper) 92%, var(--surface));
-    border-bottom-color: var(--line);
+    background: var(--color-background);
+    border-bottom-color: var(--color-border);
   }
 
   .chrome__inner {
@@ -74,9 +74,9 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
     align-items: center;
     gap: 0.65rem;
     font-family: var(--font-display);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--white);
     text-decoration: none;
   }
@@ -86,7 +86,7 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
     place-items: center;
     width: 1.55rem;
     height: 1.55rem;
-    border: 1px solid oklch(100% 0 0 / 0.45);
+    border: 1px solid color-mix(in srgb, #fff 45%, transparent);
     font-family: var(--font-mono);
     font-size: 0.62rem;
     font-weight: 500;
@@ -98,8 +98,8 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
   }
 
   .chrome.is-solid .chrome__seal {
-    border-color: var(--ink);
-    color: var(--ink);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   .chrome__nav {
@@ -115,13 +115,14 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
 
   .chrome__nav a {
     position: relative;
-    color: oklch(100% 0 0 / 0.88);
+    color: color-mix(in srgb, #fff 88%, transparent);
     text-decoration: none;
     padding: 0.4rem 0.55rem;
     border-radius: var(--radius);
-    min-height: 2.5rem;
+    min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .chrome__nav a:not(.chrome__lang)::after {
@@ -129,7 +130,7 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
     position: absolute;
     left: 0.55rem;
     right: 0.55rem;
-    bottom: 0.35rem;
+    bottom: 0.4rem;
     height: 1px;
     background: currentColor;
     transform: scaleX(0);
@@ -150,11 +151,11 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
   }
 
   .chrome.is-solid .chrome__nav a:hover {
-    color: var(--accent);
+    color: var(--link);
   }
 
   .chrome__lang {
-    border: 1px solid oklch(100% 0 0 / 0.35);
+    border: 1px solid color-mix(in srgb, #fff 35%, transparent);
     margin-left: 0.35rem;
     font-weight: 600;
     font-family: var(--font-mono);
@@ -162,7 +163,7 @@ const otherHref = withBase(content.otherLocaleHref.replace(/^\//, ''));
   }
 
   .chrome.is-solid .chrome__lang {
-    border-color: var(--line);
+    border-color: var(--color-border);
   }
 
   .chrome__cv {

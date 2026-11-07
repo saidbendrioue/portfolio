@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SB">
-  <rect width="32" height="32" fill="#0a2342"/>
-  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#7a9e9e" stroke-width="1"/>
-  <text x="16" y="21" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#f3f5f8" letter-spacing="0.5">SB</text>
+  <rect width="32" height="32" fill="#0F172A"/>
+  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#A16207" stroke-width="1"/>
+  <text x="16" y="21" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#F8FAFC" letter-spacing="0.5">SB</text>
 </svg>

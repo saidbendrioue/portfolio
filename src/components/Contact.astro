@@ -25,7 +25,7 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
         <span>{content.contact.linkedinLabel}</span>
         <strong translate="no">in/Said-Bendrioue</strong>
       </a>
-      <a class="btn btn--outline" href={withBase('cv-said-bendrioue.pdf')} download>
+      <a class="btn btn--primary" href={withBase('cv-said-bendrioue.pdf')} download>
         {content.contact.cvLabel}
       </a>
       <p class="contact__note">{content.contact.cvNote}</p>
@@ -52,6 +52,7 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
     text-decoration: none;
     padding-bottom: 0.95rem;
     border-bottom: var(--hairline);
+    cursor: pointer;
   }
 
   .contact__link:hover {
@@ -59,7 +60,7 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
   }
 
   .contact__link:hover strong {
-    color: var(--accent);
+    color: var(--link);
   }
 
   .contact__link span {
@@ -80,7 +81,7 @@ const linkedin = 'https://www.linkedin.com/in/Said-Bendrioue';
   }
 
   .contact__link--email strong {
-    font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem);
   }
 
   .contact__note {
