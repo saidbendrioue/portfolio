@@ -1,23 +1,27 @@
 :root {
-  /* Sealed trust ledger — navy ink, cool paper, one institutional teal */
-  --ink: #0a2342;
-  --ink-soft: #163a5f;
-  --muted: #4a5d73;
-  --accent: #0f6e6e;
-  --accent-press: #0c5a5a;
-  --paper: #f3f5f8;
-  --surface: #ffffff;
-  --line: rgba(10, 35, 66, 0.14);
-  --fill: rgba(10, 35, 66, 0.05);
-  --white: #ffffff;
+  /* Sealed Trust Register — oklch tokens (see DESIGN.md) */
+  --paper: oklch(96.5% 0.008 250);
+  --paper-deep: oklch(93.5% 0.012 250);
+  --surface: oklch(99% 0.004 250);
+  --ink: oklch(28% 0.055 250);
+  --ink-soft: oklch(38% 0.045 250);
+  --muted: oklch(48% 0.028 250);
+  --accent: oklch(45% 0.07 195);
+  --accent-press: oklch(38% 0.065 195);
+  --line: oklch(28% 0.055 250 / 0.16);
+  --fill: oklch(28% 0.055 250 / 0.05);
+  --white: oklch(100% 0 0);
+  --selection: oklch(45% 0.07 195 / 0.28);
 
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-display: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
   --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
 
-  --max: 1120px;
-  --radius: 4px;
-  --space-section: clamp(4.5rem, 8vw, 6.5rem);
-  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max: 1200px;
+  --radius: 2px;
+  --space-section: clamp(4.75rem, 9vw, 7rem);
+  --chrome-h: 3.5rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --press: 90ms ease-out;
   --hairline: 1px solid var(--line);
 }
@@ -33,6 +37,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+@media (pointer: fine) {
+  html {
+    overscroll-behavior: none;
+  }
+}
+
 body {
   margin: 0;
   color: var(--ink);
@@ -40,9 +50,21 @@ body {
   font-size: 1.0625rem;
   line-height: 1.55;
   letter-spacing: 0;
-  background: var(--paper);
-  min-height: 100vh;
+  background-color: var(--paper);
+  /* Subtle atmosphere — cool wash + fine grain, not flat single color */
+  background-image:
+    radial-gradient(120% 80% at 0% 0%, oklch(93% 0.02 250 / 0.55), transparent 55%),
+    radial-gradient(90% 70% at 100% 10%, oklch(94% 0.018 195 / 0.35), transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
 }
 
 img {
@@ -60,6 +82,11 @@ a:hover {
   color: var(--accent);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 h1,
 h2,
 h3 {
@@ -67,10 +94,35 @@ h3 {
   margin: 0;
   color: var(--ink);
   font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48;
+  text-wrap: balance;
+}
+
+/* Base type steps (scoped section CSS may refine) — keeps hierarchy when CSS is partial */
+h1 {
+  font-size: clamp(2.9rem, 10vw, 5.4rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 ul,
@@ -81,6 +133,28 @@ ol {
 
 ul {
   list-style: none;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.55rem 0.9rem;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transform: translateY(-160%);
+  transition: transform 160ms var(--ease);
+}
+
+.skip:focus {
+  transform: translateY(0);
+  color: var(--white);
 }
 
 .site {
@@ -97,9 +171,13 @@ ul {
   position: relative;
 }
 
+.ledger__rule {
+  display: none;
+}
+
 @media (min-width: 860px) {
-  .ledger::before {
-    content: '';
+  .ledger__rule {
+    display: block;
     position: absolute;
     left: max(0px, calc((100% - var(--max)) / 2));
     top: 0;
@@ -108,23 +186,31 @@ ul {
     background: var(--ink);
     opacity: 0.88;
     pointer-events: none;
+    transform-origin: top center;
+    transform: scaleY(0);
+  }
+
+  .ledger.is-drawn .ledger__rule {
+    transform: scaleY(1);
+    transition: transform 0.7s var(--ease);
   }
 
   .ledger .wrap {
-    padding-left: 1.75rem;
+    padding-left: 1.85rem;
   }
 }
 
 .section {
   padding: var(--space-section) 0;
+  scroll-margin-top: calc(var(--chrome-h) + 0.75rem);
 }
 
 .section--alt {
-  background: var(--surface);
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
 }
 
 .section__title {
-  font-size: clamp(1.85rem, 3.6vw, 2.55rem);
+  font-size: clamp(1.9rem, 3.5vw, 2.65rem);
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -132,7 +218,7 @@ ul {
 }
 
 .section__lead {
-  max-width: 38rem;
+  max-width: 62ch;
   color: var(--muted);
   font-size: 1.0625rem;
   line-height: 1.55;
@@ -143,7 +229,7 @@ ul {
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
-  padding: 0.65rem 1.2rem;
+  padding: 0.65rem 1.25rem;
   border-radius: var(--radius);
   border: 1px solid transparent;
   font-family: var(--font-body);
@@ -152,6 +238,7 @@ ul {
   letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
+  touch-action: manipulation;
   transition:
     transform var(--press),
     background-color 160ms var(--ease),
@@ -180,11 +267,11 @@ ul {
 .btn--ghost {
   background: transparent;
   color: var(--white);
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: oklch(100% 0 0 / 0.55);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: oklch(100% 0 0 / 0.1);
   color: var(--white);
 }
 
@@ -201,11 +288,15 @@ ul {
 
 .reveal {
   opacity: 0;
-  transition: opacity 0.35s var(--ease);
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
 }
 
 .reveal.is-visible {
   opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -215,6 +306,13 @@ ul {
 
   .reveal {
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .ledger__rule,
+  .ledger.is-drawn .ledger__rule {
+    transform: none;
     transition: none;
   }
 

@@ -27,7 +27,7 @@ const { content } = Astro.props;
 
 <style>
   .skills__list {
-    margin-top: 2.25rem;
+    margin-top: 2.5rem;
     display: grid;
     gap: 0;
     border-top: var(--hairline);
@@ -35,16 +35,16 @@ const { content } = Astro.props;
 
   .skill {
     display: grid;
-    gap: 0.35rem;
-    padding: 1.15rem 0;
+    gap: 0.4rem;
+    padding: 1.25rem 0;
     border-bottom: var(--hairline);
   }
 
   .skill dt {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent);
   }
@@ -55,12 +55,13 @@ const { content } = Astro.props;
     font-size: 1.02rem;
     line-height: 1.5;
     font-weight: 500;
+    max-width: 60ch;
   }
 
   @media (min-width: 860px) {
     .skill {
-      grid-template-columns: 11rem 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 10.5rem 1fr;
+      gap: 1.75rem;
       align-items: baseline;
     }
   }

@@ -85,7 +85,7 @@ const fr: Content = {
     brand: 'Said Bendrioue',
     role: 'Développeur Fullstack Senior · Scrum Master',
     headline: 'Systèmes critiques, tenus en production.',
-    lead: 'Java / Spring Boot / Angular — vote électronique, prestations sociales La Poste, parcours bancaires omnicanaux. CDI Nice / hybride.',
+    lead: 'Java / Spring Boot / Angular : vote électronique, prestations sociales La Poste, parcours bancaires omnicanaux. CDI Nice / hybride.',
     ctaPrimary: 'Prendre contact',
     ctaSecondary: 'Télécharger le CV',
     photoAlt: 'Portrait de Said Bendrioue',
@@ -108,7 +108,7 @@ const fr: Content = {
         period: 'déc. 2025 – août 2026',
         title: 'Vote électronique — élections professionnelles',
         summary:
-          'Sur la plateforme e-Vote (échelle : 165 M+ électeurs, 2 000+ organisations), conception du cycle de vie des candidatures, contrôles des pièces électorales, exports CSV/PDF/ZIP, habilitations et notifications. Animation Scrum — vélocité d’équipe +15 %.',
+          'Sur la plateforme e-Vote (échelle : 165 M+ électeurs, 2 000+ organisations), conception du cycle de vie des candidatures, contrôles des pièces électorales, exports CSV/PDF/ZIP, habilitations et notifications. Animation Scrum : vélocité d’équipe +15 %.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'GitLab CI/CD', 'Jira'],
       },
       {
@@ -142,15 +142,15 @@ const fr: Content = {
     also: {
       title: 'Aussi',
       items: [
-        'Bilans Service (Docaposte, mai–nov. 2025) — migration Oracle → PostgreSQL, Docker, CI/CD, accompagnement recette / MEP.',
-        'Maison France Services (Docaposte, 2023–2024) — APIs Spring Boot et formulaires Angular pour ~8 000 conseillers ; facilitation Scrum.',
-        'Bouygues Construction IT (2019–2022) — modernisation e-Doc Java 6/GWT → Java 11/Angular.',
+        'Bilans Service (Docaposte, mai–nov. 2025): migration Oracle → PostgreSQL, Docker, CI/CD, accompagnement recette / MEP.',
+        'Maison France Services (Docaposte, 2023–2024): APIs Spring Boot et formulaires Angular pour ~8 000 conseillers ; facilitation Scrum.',
+        'Bouygues Construction IT (2019–2022): modernisation e-Doc Java\u00a06/GWT → Java\u00a011/Angular.',
       ],
     },
   },
   skills: {
     title: 'Compétences',
-    lead: 'Socle de production — aligné sur le CV.',
+    lead: 'Socle de production, aligné sur le CV.',
     groups: [
       {
         label: 'Backend',
@@ -176,7 +176,7 @@ const fr: Content = {
     emailLabel: 'Email',
     linkedinLabel: 'LinkedIn',
     cvLabel: 'Télécharger le CV (PDF)',
-    cvNote: 'Le PDF est le CV LaTeX à jour (version visuelle).',
+    cvNote: 'Le PDF correspond au CV LaTeX à jour (version visuelle).',
   },
   footer: {
     rights: 'Said Bendrioue',
@@ -204,7 +204,7 @@ const en: Content = {
     brand: 'Said Bendrioue',
     role: 'Senior Fullstack Developer · Scrum Master',
     headline: 'Critical systems, kept in production.',
-    lead: 'Java / Spring Boot / Angular — e-voting, La Poste social benefits, omnichannel banking journeys. Open to permanent roles in Nice / hybrid.',
+    lead: 'Java / Spring Boot / Angular: e-voting, La Poste social benefits, omnichannel banking journeys. Open to permanent roles in Nice / hybrid.',
     ctaPrimary: 'Get in touch',
     ctaSecondary: 'Download CV',
     photoAlt: 'Portrait of Said Bendrioue',
@@ -227,7 +227,7 @@ const en: Content = {
         period: 'Dec 2025 – Aug 2026',
         title: 'Electronic voting — professional elections',
         summary:
-          'On the e-Vote platform (scale: 165M+ voters, 2,000+ organizations): candidacy lifecycle, electoral document controls, CSV/PDF/ZIP exports, access rules and notifications. Scrum leadership — team velocity +15%.',
+          'On the e-Vote platform (scale: 165M+ voters, 2,000+ organizations): candidacy lifecycle, electoral document controls, CSV/PDF/ZIP exports, access rules and notifications. Scrum leadership: team velocity +15%.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'GitLab CI/CD', 'Jira'],
       },
       {
@@ -261,15 +261,15 @@ const en: Content = {
     also: {
       title: 'Also',
       items: [
-        'Bilans Service (Docaposte, May–Nov 2025) — Oracle → PostgreSQL migration, Docker, CI/CD, UAT / go-live support.',
-        'Maison France Services (Docaposte, 2023–2024) — Spring Boot APIs and Angular forms for ~8,000 advisors; Scrum facilitation.',
-        'Bouygues Construction IT (2019–2022) — e-Doc modernization Java 6/GWT → Java 11/Angular.',
+        'Bilans Service (Docaposte, May–Nov 2025): Oracle → PostgreSQL migration, Docker, CI/CD, UAT / go-live support.',
+        'Maison France Services (Docaposte, 2023–2024): Spring Boot APIs and Angular forms for ~8,000 advisors; Scrum facilitation.',
+        'Bouygues Construction IT (2019–2022): e-Doc modernization Java\u00a06/GWT → Java\u00a011/Angular.',
       ],
     },
   },
   skills: {
     title: 'Skills',
-    lead: 'Production toolkit — aligned with the CV.',
+    lead: 'Production toolkit, aligned with the CV.',
     groups: [
       {
         label: 'Backend',
@@ -295,7 +295,7 @@ const en: Content = {
     emailLabel: 'Email',
     linkedinLabel: 'LinkedIn',
     cvLabel: 'Download CV (PDF)',
-    cvNote: 'The PDF matches the latest LaTeX visual resume.',
+    cvNote: 'The PDF is the latest LaTeX visual resume.',
   },
   footer: {
     rights: 'Said Bendrioue',

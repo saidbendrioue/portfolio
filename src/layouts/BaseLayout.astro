@@ -10,6 +10,7 @@ type Props = {
 
 const { content } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const skipLabel = content.locale === 'fr' ? 'Aller au contenu' : 'Skip to content';
 ---
 
 <!doctype html>
@@ -25,20 +26,21 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap"
       rel="stylesheet"
     />
     <title>{content.meta.title}</title>
   </head>
   <body>
+    <a class="skip" href="#main">{skipLabel}</a>
     <div class="site">
       <Header content={content} />
-      <main>
+      <main id="main">
         <slot />
       </main>
       <footer class="footer">
         <div class="wrap footer__inner">
-          <p>{content.footer.rights}</p>
+          <p translate="no">{content.footer.rights}</p>
           <p class="footer__loc">{content.about.location}</p>
         </div>
       </footer>
@@ -46,9 +48,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <script>
       const reveal = () => {
         const nodes = document.querySelectorAll('.reveal');
+        const ledger = document.querySelector('[data-ledger]');
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reduce || !('IntersectionObserver' in window)) {
           nodes.forEach((n) => n.classList.add('is-visible'));
+          ledger?.classList.add('is-drawn');
           return;
         }
         const io = new IntersectionObserver(
@@ -60,9 +64,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
               }
             });
           },
-          { threshold: 0.1, rootMargin: '0px 0px -5% 0px' },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
         );
         nodes.forEach((n) => io.observe(n));
+
+        if (ledger) {
+          const ruleIo = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  ledger.classList.add('is-drawn');
+                  ruleIo.disconnect();
+                }
+              });
+            },
+            { threshold: 0.05 },
+          );
+          ruleIo.observe(ledger);
+        }
       };
       reveal();
     </script>
@@ -71,7 +90,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 <style>
   .footer {
-    padding: 2rem 0 2.75rem;
+    padding: 2.25rem 0 3rem;
     color: var(--muted);
     font-size: 0.875rem;
     background: var(--surface);
@@ -88,11 +107,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   .footer__loc {
     color: var(--ink);
     font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
   }
 
   @media (min-width: 860px) {
     .footer .wrap {
-      padding-left: 1.75rem;
+      padding-left: 1.85rem;
     }
   }
 </style>

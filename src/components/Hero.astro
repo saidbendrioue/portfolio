@@ -21,11 +21,12 @@ const { content } = Astro.props;
       fetchpriority="high"
     />
     <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__ticks" aria-hidden="true"></div>
   </div>
 
   <div class="hero__content hero__anim">
+    <h1 class="hero__brand" translate="no">{content.hero.brand}</h1>
     <p class="hero__role">{content.hero.role}</p>
-    <h1 class="hero__brand">{content.hero.brand}</h1>
     <p class="hero__headline">{content.hero.headline}</p>
     <p class="hero__lead">{content.hero.lead}</p>
     <div class="hero__cta">
@@ -38,7 +39,7 @@ const { content } = Astro.props;
 <style>
   .hero {
     position: relative;
-    min-height: 100svh;
+    min-height: 100dvh;
     display: grid;
     align-items: end;
     color: var(--white);
@@ -61,8 +62,46 @@ const { content } = Astro.props;
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(105deg, rgba(10, 35, 66, 0.88) 0%, rgba(10, 35, 66, 0.55) 42%, rgba(10, 35, 66, 0.22) 100%),
-      linear-gradient(180deg, rgba(10, 35, 66, 0.35) 0%, rgba(10, 35, 66, 0.12) 38%, rgba(10, 35, 66, 0.86) 100%);
+      linear-gradient(
+        108deg,
+        oklch(28% 0.055 250 / 0.92) 0%,
+        oklch(28% 0.055 250 / 0.58) 40%,
+        oklch(28% 0.055 250 / 0.2) 100%
+      ),
+      linear-gradient(
+        180deg,
+        oklch(28% 0.055 250 / 0.4) 0%,
+        oklch(28% 0.055 250 / 0.1) 36%,
+        oklch(28% 0.055 250 / 0.9) 100%
+      );
+  }
+
+  .hero__ticks {
+    position: absolute;
+    left: max(1.25rem, calc((100% - var(--max)) / 2));
+    bottom: 4.5rem;
+    top: 35%;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, oklch(100% 0 0 / 0.35));
+    opacity: 0.7;
+  }
+
+  .hero__ticks::before,
+  .hero__ticks::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 12px;
+    height: 1px;
+    background: oklch(100% 0 0 / 0.55);
+  }
+
+  .hero__ticks::before {
+    top: 18%;
+  }
+
+  .hero__ticks::after {
+    top: 62%;
   }
 
   .hero__content {
@@ -71,46 +110,52 @@ const { content } = Astro.props;
     width: min(100% - 2.5rem, 42rem);
     margin-left: max(1.25rem, calc((100% - var(--max)) / 2));
     margin-right: auto;
-    padding: 7.25rem 0 4.5rem;
+    padding: 7.5rem 0 4.75rem;
   }
 
-  .hero__role {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.72);
-    margin-bottom: 0.9rem;
+  @media (min-width: 860px) {
+    .hero__content {
+      padding-left: 1.85rem;
+    }
   }
 
   .hero__brand {
     font-family: var(--font-display);
-    font-size: clamp(2.85rem, 9vw, 5.1rem);
+    font-size: clamp(2.9rem, 10vw, 5.4rem);
     font-weight: 600;
     letter-spacing: -0.03em;
-    line-height: 0.98;
-    margin-bottom: 1rem;
+    line-height: 0.96;
+    margin-bottom: 0.85rem;
     color: var(--white);
+  }
+
+  .hero__role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: oklch(100% 0 0 / 0.72);
+    margin-bottom: 1.15rem;
   }
 
   .hero__headline {
     font-family: var(--font-display);
-    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
     font-weight: 500;
     letter-spacing: -0.015em;
     line-height: 1.22;
     max-width: 20ch;
-    margin-bottom: 0.85rem;
-    color: rgba(255, 255, 255, 0.96);
+    margin-bottom: 0.9rem;
+    color: oklch(100% 0 0 / 0.96);
   }
 
   .hero__lead {
-    max-width: 34rem;
-    color: rgba(255, 255, 255, 0.78);
+    max-width: 58ch;
+    color: oklch(100% 0 0 / 0.8);
     font-size: 1.0625rem;
     line-height: 1.5;
-    margin-bottom: 1.85rem;
+    margin-bottom: 1.9rem;
   }
 
   .hero__cta {
@@ -119,32 +164,38 @@ const { content } = Astro.props;
     gap: 0.65rem;
   }
 
-  /* One settle — no staggered child delays */
   .hero__anim {
     opacity: 0;
-    animation: heroIn 0.45s var(--ease) 60ms forwards;
+    transform: translateY(12px);
+    animation: heroIn 0.48s var(--ease) 40ms forwards;
   }
 
   @keyframes heroIn {
     to {
       opacity: 1;
+      transform: none;
     }
   }
 
   @media (max-width: 720px) {
     .hero__content {
-      padding-top: 6.25rem;
-      padding-bottom: 3rem;
+      padding-top: 6.5rem;
+      padding-bottom: 3.25rem;
     }
 
     .hero__img {
       object-position: center 12%;
+    }
+
+    .hero__ticks {
+      display: none;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero__anim {
       opacity: 1;
+      transform: none;
       animation: none;
     }
   }
