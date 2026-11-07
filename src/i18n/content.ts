@@ -93,7 +93,7 @@ const fr: Content = {
   about: {
     title: 'À propos',
     body: [
-      'Fullstack Senior Java/Angular et Scrum Master (7 ans) sur des systèmes où fiabilité, sécurité et conformité sont non négociables : vote électronique, données financières, bancaire.',
+      'Fullstack Senior Java/Angular et Scrum Master (8 ans) sur des systèmes où fiabilité, sécurité et conformité sont non négociables : vote électronique, données financières, bancaire.',
       'Chez Docaposte puis La Poste et Crédit Agricole : APIs Spring Boot, SPA Angular, CI/CD, animation Scrum. Ouvert aux postes CDI à Nice / hybride.',
     ],
     location: 'Nice / hybride',
@@ -212,7 +212,7 @@ const en: Content = {
   about: {
     title: 'About',
     body: [
-      'Senior Fullstack Java/Angular engineer and Scrum Master (7 years) on systems where reliability, security, and compliance are non-negotiable: e-voting, financial data, banking.',
+      'Senior Fullstack Java/Angular engineer and Scrum Master (8 years) on systems where reliability, security, and compliance are non-negotiable: e-voting, financial data, banking.',
       'At Docaposte, then La Poste and Crédit Agricole: Spring Boot APIs, Angular SPAs, CI/CD, Scrum leadership. Targeting permanent roles in Nice / hybrid.',
     ],
     location: 'Nice / hybrid',
