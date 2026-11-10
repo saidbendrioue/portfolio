@@ -1,3 +1,5 @@
+import type { TechIconKey } from '../data/tech-icons';
+
 export type Locale = 'fr' | 'en';
 
 export type Content = {
@@ -50,6 +52,20 @@ export type Content = {
     title: string;
     lead: string;
     groups: Array<{ label: string; items: string[] }>;
+    stack: {
+      title: string;
+      lead: string;
+      filterAll: string;
+      attributes: Array<{ id: string; label: string }>;
+      items: Array<{
+        id: string;
+        left: TechIconKey;
+        right: TechIconKey;
+        outcome: string;
+        detail: string;
+        attributes: string[];
+      }>;
+    };
   };
   contact: {
     title: string;
@@ -158,17 +174,151 @@ const fr: Content = {
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'TanStack Query'],
       },
       {
         label: 'Livraison',
-        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'JUnit', 'SonarQube'],
+        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'GitHub Actions', 'JUnit', 'SonarQube'],
       },
       {
         label: 'Contexte',
-        items: ['PostgreSQL', 'Oracle', 'RGPD / CNIL', 'Scrum Master'],
+        items: ['PostgreSQL', 'Oracle', 'Redis', 'RGPD / CNIL', 'Scrum Master'],
       },
     ],
+    stack: {
+      title: 'Combinaisons production',
+      lead: 'Quinze binômes éprouvés : chaque paire livre un résultat opérationnel concret.',
+      filterAll: 'Toutes',
+      attributes: [
+        { id: 'scalable', label: 'Scalable' },
+        { id: 'secure', label: 'Sécurisé' },
+        { id: 'maintainable', label: 'Maintenable' },
+        { id: 'observable', label: 'Observable' },
+        { id: 'cloud-native', label: 'Cloud-native' },
+      ],
+      items: [
+        {
+          id: 'java-jfr',
+          left: 'java',
+          right: 'jfr',
+          outcome: 'Profiler JVM',
+          detail: 'Profiler, analyser et diagnostiquer les problèmes runtime avec Java Flight Recorder.',
+          attributes: ['observable', 'maintainable'],
+        },
+        {
+          id: 'spring-actuator',
+          left: 'springboot',
+          right: 'actuator',
+          outcome: 'Santé & monitoring',
+          detail: 'Health checks, métriques et insights opérationnels exposés par Spring Boot Actuator.',
+          attributes: ['observable', 'cloud-native'],
+        },
+        {
+          id: 'spring-oauth',
+          left: 'springsecurity',
+          right: 'oauth2',
+          outcome: 'AuthN / AuthZ',
+          detail: 'Contrôle d’accès enterprise standardisé via OAuth2 et OpenID Connect.',
+          attributes: ['secure'],
+        },
+        {
+          id: 'postgres-liquibase',
+          left: 'postgresql',
+          right: 'liquibase',
+          outcome: 'Migrations de schéma',
+          detail: 'Évolutions de schéma versionnées, reproductibles et auditables.',
+          attributes: ['maintainable'],
+        },
+        {
+          id: 'hibernate-postgres',
+          left: 'hibernate',
+          right: 'postgresql',
+          outcome: 'ORM robuste',
+          detail: 'Mapping objet-relationnel sur une base transactionnelle éprouvée.',
+          attributes: ['maintainable', 'scalable'],
+        },
+        {
+          id: 'postgres-kafka',
+          left: 'postgresql',
+          right: 'kafka',
+          outcome: 'Outbox transactionnel',
+          detail: 'Publication d’événements fiable et cohérente via le pattern Transactional Outbox.',
+          attributes: ['scalable', 'maintainable'],
+        },
+        {
+          id: 'kafka-idempotency',
+          left: 'kafka',
+          right: 'idempotency',
+          outcome: 'Conso sans doublons',
+          detail: 'Traitement idempotent des messages pour un comportement exactly-once-like.',
+          attributes: ['scalable', 'secure'],
+        },
+        {
+          id: 'redis-cache',
+          left: 'redis',
+          right: 'springcache',
+          outcome: 'API faible latence',
+          detail: 'Réponses plus rapides et charge base réduite grâce au cache Spring + Redis.',
+          attributes: ['scalable'],
+        },
+        {
+          id: 'resilience-micrometer',
+          left: 'resilience4j',
+          right: 'micrometer',
+          outcome: 'Résilience & métriques',
+          detail: 'Circuit breaker, retry et rate limiter instrumentés pour l’exploitation.',
+          attributes: ['scalable', 'observable'],
+        },
+        {
+          id: 'otel-grafana',
+          left: 'opentelemetry',
+          right: 'grafana',
+          outcome: 'Observabilité E2E',
+          detail: 'Collecte, visualisation et analyse des traces, métriques et logs.',
+          attributes: ['observable', 'cloud-native'],
+        },
+        {
+          id: 'junit-testcontainers',
+          left: 'junit5',
+          right: 'testcontainers',
+          outcome: 'Tests d’intégration',
+          detail: 'Tests réalistes avec de vraies dépendances dans des conteneurs isolés.',
+          attributes: ['maintainable'],
+        },
+        {
+          id: 'react-tanstack',
+          left: 'react',
+          right: 'tanstackquery',
+          outcome: 'Data frontend',
+          detail: 'Données serveur fiables, mises en cache et à jour dans React.',
+          attributes: ['maintainable', 'scalable'],
+        },
+        {
+          id: 'ts-openapi',
+          left: 'typescript',
+          right: 'openapi',
+          outcome: 'API typée',
+          detail: 'Contrats OpenAPI first et clients générés pour limiter les régressions.',
+          attributes: ['maintainable', 'secure'],
+        },
+        {
+          id: 'docker-gha',
+          left: 'docker',
+          right: 'githubactions',
+          outcome: 'CI/CD automatisé',
+          detail: 'Build, test et déploiement d’applications conteneurisées en pipeline.',
+          attributes: ['cloud-native', 'maintainable'],
+        },
+        {
+          id: 'k8s-spring',
+          left: 'kubernetes',
+          right: 'springboot',
+          outcome: 'Déploiement cloud-native',
+          detail: 'Applications Java scalables, résilientes et opérables sur Kubernetes.',
+          attributes: ['cloud-native', 'scalable'],
+        },
+      ],
+    },
   },
   contact: {
     title: 'Contact',
@@ -277,17 +427,151 @@ const en: Content = {
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'TanStack Query'],
       },
       {
         label: 'Delivery',
-        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'JUnit', 'SonarQube'],
+        items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'GitHub Actions', 'JUnit', 'SonarQube'],
       },
       {
         label: 'Context',
-        items: ['PostgreSQL', 'Oracle', 'GDPR / CNIL', 'Scrum Master'],
+        items: ['PostgreSQL', 'Oracle', 'Redis', 'GDPR / CNIL', 'Scrum Master'],
       },
     ],
+    stack: {
+      title: 'Production combinations',
+      lead: 'Fifteen proven pairings — each duo delivers a concrete operational outcome.',
+      filterAll: 'All',
+      attributes: [
+        { id: 'scalable', label: 'Scalable' },
+        { id: 'secure', label: 'Secure' },
+        { id: 'maintainable', label: 'Maintainable' },
+        { id: 'observable', label: 'Observable' },
+        { id: 'cloud-native', label: 'Cloud-native' },
+      ],
+      items: [
+        {
+          id: 'java-jfr',
+          left: 'java',
+          right: 'jfr',
+          outcome: 'JVM profiler',
+          detail: 'Profile, analyze, and diagnose runtime issues with Java Flight Recorder.',
+          attributes: ['observable', 'maintainable'],
+        },
+        {
+          id: 'spring-actuator',
+          left: 'springboot',
+          right: 'actuator',
+          outcome: 'Health & monitoring',
+          detail: 'Health checks, metrics, and operational insights via Spring Boot Actuator.',
+          attributes: ['observable', 'cloud-native'],
+        },
+        {
+          id: 'spring-oauth',
+          left: 'springsecurity',
+          right: 'oauth2',
+          outcome: 'AuthN / AuthZ',
+          detail: 'Standards-based, enterprise-grade access control with OAuth2 and OpenID Connect.',
+          attributes: ['secure'],
+        },
+        {
+          id: 'postgres-liquibase',
+          left: 'postgresql',
+          right: 'liquibase',
+          outcome: 'Schema migrations',
+          detail: 'Version-controlled, reliable database schema changes.',
+          attributes: ['maintainable'],
+        },
+        {
+          id: 'hibernate-postgres',
+          left: 'hibernate',
+          right: 'postgresql',
+          outcome: 'Robust ORM',
+          detail: 'Object-relational mapping on a battle-tested transactional database.',
+          attributes: ['maintainable', 'scalable'],
+        },
+        {
+          id: 'postgres-kafka',
+          left: 'postgresql',
+          right: 'kafka',
+          outcome: 'Transactional outbox',
+          detail: 'Consistent, fault-tolerant event publishing via the Transactional Outbox pattern.',
+          attributes: ['scalable', 'maintainable'],
+        },
+        {
+          id: 'kafka-idempotency',
+          left: 'kafka',
+          right: 'idempotency',
+          outcome: 'Duplicate-safe consumer',
+          detail: 'Idempotent message handling for exactly-once-like processing.',
+          attributes: ['scalable', 'secure'],
+        },
+        {
+          id: 'redis-cache',
+          left: 'redis',
+          right: 'springcache',
+          outcome: 'Low-latency API',
+          detail: 'Faster responses and reduced database load with Spring Cache + Redis.',
+          attributes: ['scalable'],
+        },
+        {
+          id: 'resilience-micrometer',
+          left: 'resilience4j',
+          right: 'micrometer',
+          outcome: 'Resilience & metrics',
+          detail: 'Circuit breaker, retry, and rate limiter with operational metrics.',
+          attributes: ['scalable', 'observable'],
+        },
+        {
+          id: 'otel-grafana',
+          left: 'opentelemetry',
+          right: 'grafana',
+          outcome: 'End-to-end observability',
+          detail: 'Collect, visualize, and analyze traces, metrics, and logs.',
+          attributes: ['observable', 'cloud-native'],
+        },
+        {
+          id: 'junit-testcontainers',
+          left: 'junit5',
+          right: 'testcontainers',
+          outcome: 'Integration testing',
+          detail: 'Realistic tests with real dependencies in isolated containers.',
+          attributes: ['maintainable'],
+        },
+        {
+          id: 'react-tanstack',
+          left: 'react',
+          right: 'tanstackquery',
+          outcome: 'Frontend data layer',
+          detail: 'Reliable, cached, and up-to-date server state in React.',
+          attributes: ['maintainable', 'scalable'],
+        },
+        {
+          id: 'ts-openapi',
+          left: 'typescript',
+          right: 'openapi',
+          outcome: 'Type-safe APIs',
+          detail: 'Contract-first OpenAPI specs and generated clients.',
+          attributes: ['maintainable', 'secure'],
+        },
+        {
+          id: 'docker-gha',
+          left: 'docker',
+          right: 'githubactions',
+          outcome: 'Automated CI/CD',
+          detail: 'Build, test, and deploy containerized applications in pipeline.',
+          attributes: ['cloud-native', 'maintainable'],
+        },
+        {
+          id: 'k8s-spring',
+          left: 'kubernetes',
+          right: 'springboot',
+          outcome: 'Cloud-native ops',
+          detail: 'Scalable, resilient, operable Java applications on Kubernetes.',
+          attributes: ['cloud-native', 'scalable'],
+        },
+      ],
+    },
   },
   contact: {
     title: 'Contact',

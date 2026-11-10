@@ -1,8 +1,11 @@
 ---
 import type { Content } from '../i18n/content';
+import { techIcons } from '../data/tech-icons';
+import TechIcon from './TechIcon.astro';
 
 type Props = { content: Content };
 const { content } = Astro.props;
+const { stack } = content.skills;
 ---
 
 <section id="skills" class="section section--alt skills">
@@ -22,8 +25,112 @@ const { content } = Astro.props;
         ))
       }
     </dl>
+
+    <div class="stack reveal" data-stack>
+      <div class="stack__intro">
+        <h3 class="stack__title">{stack.title}</h3>
+        <p class="stack__lead">{stack.lead}</p>
+      </div>
+
+      <div class="stack__filters" role="toolbar" aria-label={stack.title}>
+        <button type="button" class="stack__filter is-active" data-filter="all" aria-pressed="true">
+          {stack.filterAll}
+        </button>
+        {
+          stack.attributes.map((attr) => (
+            <button type="button" class="stack__filter" data-filter={attr.id} aria-pressed="false">
+              {attr.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <ul class="stack__grid">
+        {
+          stack.items.map((item, index) => (
+            <li
+              class="combo reveal"
+              style={`--i: ${index}`}
+              data-attrs={item.attributes.join(' ')}
+            >
+              <button type="button" class="combo__hit" aria-expanded="false" data-combo>
+                <span class="combo__pair" aria-hidden="true">
+                  <TechIcon name={item.left} />
+                  <span class="combo__plus">+</span>
+                  <TechIcon name={item.right} />
+                </span>
+                <span class="combo__copy">
+                  <span class="combo__names">
+                    <span translate="no">{techIcons[item.left].label}</span>
+                    <span class="combo__sep" aria-hidden="true">+</span>
+                    <span translate="no">{techIcons[item.right].label}</span>
+                  </span>
+                  <span class="combo__outcome">{item.outcome}</span>
+                  <span class="combo__detail">{item.detail}</span>
+                </span>
+                <span class="combo__chev" aria-hidden="true"></span>
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </section>
+
+<script>
+  const root = document.querySelector('[data-stack]');
+  if (root) {
+    const filters = root.querySelectorAll<HTMLButtonElement>('.stack__filter');
+    const combos = root.querySelectorAll<HTMLElement>('.combo');
+    const hits = root.querySelectorAll<HTMLButtonElement>('[data-combo]');
+
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.filter ?? 'all';
+        filters.forEach((f) => {
+          const on = f === btn;
+          f.classList.toggle('is-active', on);
+          f.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        combos.forEach((combo) => {
+          const attrs = (combo.dataset.attrs ?? '').split(/\s+/);
+          const show = value === 'all' || attrs.includes(value);
+          combo.hidden = !show;
+          if (!show) {
+            const hit = combo.querySelector<HTMLButtonElement>('[data-combo]');
+            hit?.setAttribute('aria-expanded', 'false');
+            combo.classList.remove('is-open');
+          }
+        });
+      });
+    });
+
+    hits.forEach((hit) => {
+      hit.addEventListener('pointerdown', () => {
+        hit.classList.add('is-press');
+      });
+      const clearPress = () => hit.classList.remove('is-press');
+      hit.addEventListener('pointerup', clearPress);
+      hit.addEventListener('pointerleave', clearPress);
+      hit.addEventListener('pointercancel', clearPress);
+
+      hit.addEventListener('click', () => {
+        const item = hit.closest('.combo');
+        if (!item) return;
+        const open = hit.getAttribute('aria-expanded') === 'true';
+        hits.forEach((other) => {
+          if (other !== hit) {
+            other.setAttribute('aria-expanded', 'false');
+            other.closest('.combo')?.classList.remove('is-open');
+          }
+        });
+        hit.setAttribute('aria-expanded', open ? 'false' : 'true');
+        item.classList.toggle('is-open', !open);
+      });
+    });
+  }
+</script>
 
 <style>
   .skills__list {
@@ -58,11 +165,244 @@ const { content } = Astro.props;
     max-width: 60ch;
   }
 
+  .stack {
+    margin-top: 3.25rem;
+    padding-top: 2.5rem;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .stack__intro {
+    margin-bottom: 1.5rem;
+  }
+
+  .stack__title {
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.55rem;
+  }
+
+  .stack__lead {
+    max-width: 58ch;
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .stack__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.1rem;
+    margin-bottom: 1.35rem;
+    border-bottom: var(--hairline);
+    padding-bottom: 0.15rem;
+  }
+
+  .stack__filter {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.7rem 0.7rem 0.65rem;
+    min-height: 2.75rem;
+    cursor: pointer;
+    transition:
+      color 180ms var(--ease),
+      border-color 180ms var(--ease);
+  }
+
+  .stack__filter:hover {
+    color: var(--ink);
+  }
+
+  .stack__filter.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .stack__grid {
+    list-style: none;
+    display: grid;
+    gap: 0;
+    border-top: var(--hairline);
+  }
+
+  .combo {
+    border-bottom: var(--hairline);
+    transition:
+      opacity 200ms var(--ease),
+      background-color 200ms var(--ease);
+  }
+
+  .combo[hidden] {
+    display: none;
+  }
+
+  .combo__hit {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: start;
+    text-align: left;
+    padding: 1.15rem 0.35rem 1.15rem 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 200ms var(--ease);
+  }
+
+  .combo__hit:hover,
+  .combo.is-open .combo__hit {
+    background: var(--fill);
+  }
+
+  .combo__hit.is-press {
+    transform: scale(0.995);
+    transition: transform var(--press);
+  }
+
+  .combo__pair {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding-top: 0.1rem;
+  }
+
+  .combo__plus {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .combo__hit:hover :global(.tech-icon),
+  .combo.is-open :global(.tech-icon),
+  .combo__hit:focus-visible :global(.tech-icon) {
+    color: var(--tech-brand);
+    border-color: color-mix(in srgb, var(--tech-brand) 45%, var(--color-border));
+    background: color-mix(in srgb, var(--tech-brand) 10%, transparent);
+  }
+
+  .combo__copy {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .combo__names {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.45rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  .combo__sep {
+    color: var(--muted);
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .combo__outcome {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--link);
+  }
+
+  .combo__detail {
+    display: block;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    max-width: 58ch;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 280ms var(--ease),
+      opacity 220ms var(--ease),
+      margin-top 280ms var(--ease);
+  }
+
+  .combo.is-open .combo__detail,
+  .combo__hit[aria-expanded='true'] .combo__detail {
+    max-height: 10rem;
+    opacity: 1;
+    margin-top: 0.35rem;
+  }
+
+  .combo__chev {
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.65rem;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    transform: rotate(45deg);
+    transition:
+      transform 220ms var(--ease),
+      border-color 180ms var(--ease);
+  }
+
+  .combo.is-open .combo__chev,
+  .combo__hit[aria-expanded='true'] .combo__chev {
+    transform: rotate(225deg);
+    border-color: var(--ink);
+  }
+
   @media (min-width: 860px) {
     .skill {
       grid-template-columns: 10.5rem 1fr;
       gap: 1.75rem;
       align-items: baseline;
+    }
+
+    .stack__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 0;
+    }
+
+    .combo {
+      border-top: var(--hairline);
+    }
+
+    .combo:nth-child(odd) {
+      padding-right: 1rem;
+      border-right: var(--hairline);
+    }
+
+    .combo:nth-child(even) {
+      padding-left: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .combo__hit.is-press {
+      transform: none;
+    }
+
+    .combo__detail,
+    .combo__chev,
+    .combo__hit:hover :global(.tech-icon),
+    .stack__filter {
+      transition: none;
     }
   }
 </style>
