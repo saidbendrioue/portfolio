@@ -8,7 +8,7 @@
 Full rationale: store doc `pro-max-design.md`.
 
 ## Style
-Minimalism & Swiss Style + Accessible & Ethical. Pattern: Trust & Authority. IA: Hero → About → Projects → Skills → Contact.
+Minimalism & Swiss Style + Accessible & Ethical. Pattern: Trust & Authority. IA: Hero → About → Projects → Skills (groups + production combinations with tech icons) → Contact.
 
 ## Colors (Banking / Traditional Finance)
 | Role | Hex |
