@@ -116,7 +116,7 @@ const fr: Content = {
   },
   projects: {
     title: 'Projets phares',
-    lead: 'Quatre missions STAR : situation critique, actions fullstack, résultats défendables.',
+    lead: 'Quatre missions STAR et un projet personnel RAG : situation critique, actions fullstack, résultats défendables.',
     items: [
       {
         client: 'Docaposte / Voxaly',
@@ -124,7 +124,7 @@ const fr: Content = {
         period: 'déc. 2025 – août 2026',
         title: 'Vote électronique — élections professionnelles',
         summary:
-          'Sur la plateforme e-Vote (échelle : 165 M+ électeurs, 2 000+ organisations), conception du cycle de vie des candidatures, contrôles des pièces électorales, exports CSV/PDF/ZIP, habilitations et notifications. Animation Scrum : vélocité d’équipe +15 %.',
+          'Sur la plateforme e-Vote (échelle : ~165 000 électeurs, 2 000+ organisations), conception du cycle de vie des candidatures, contrôles des pièces électorales, exports CSV/PDF/ZIP, habilitations et notifications. Animation Scrum : vélocité d’équipe +15 %.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'GitLab CI/CD', 'Jira'],
       },
       {
@@ -153,6 +153,24 @@ const fr: Content = {
         summary:
           'Refonte nationale du parcours de mise à jour d’adresse : propagation sync/async vers le SI bancaire, validation postale, piste d’audit réglementaire. Qualité renforcée via JUnit/Mockito et gates SonarQube.',
         stack: ['Java', 'Spring Boot', 'Angular', 'Oracle', 'Jenkins', 'SonarQube', 'JUnit'],
+      },
+      {
+        client: 'Projet personnel',
+        role: 'Fullstack Java · Architecture RAG',
+        period: '2025 – 2026',
+        title: 'Intelligent Document Assistant — application RAG',
+        summary:
+          'Conception et développement d’une API intelligente basée sur l’architecture RAG (Retrieval-Augmented Generation) : ingestion de documents PDF, indexation vectorielle et recherche sémantique pour générer des réponses contextualisées via un LLM. Intégration de Spring AI et Ollama, embeddings dans PostgreSQL (pgvector), conteneurisation Docker.',
+        stack: [
+          'Java 21',
+          'Spring Boot',
+          'Spring AI',
+          'Ollama',
+          'PostgreSQL',
+          'pgvector',
+          'Docker',
+          'RAG',
+        ],
       },
     ],
     also: {
@@ -369,7 +387,7 @@ const en: Content = {
   },
   projects: {
     title: 'Featured projects',
-    lead: 'Four STAR engagements: critical context, fullstack action, defendable outcomes.',
+    lead: 'Four STAR engagements and one personal RAG project: critical context, fullstack action, defendable outcomes.',
     items: [
       {
         client: 'Docaposte / Voxaly',
@@ -377,7 +395,7 @@ const en: Content = {
         period: 'Dec 2025 – Aug 2026',
         title: 'Electronic voting — professional elections',
         summary:
-          'On the e-Vote platform (scale: 165M+ voters, 2,000+ organizations): candidacy lifecycle, electoral document controls, CSV/PDF/ZIP exports, access rules and notifications. Scrum leadership: team velocity +15%.',
+          'On the e-Vote platform (scale: ~165,000 voters, 2,000+ organizations): candidacy lifecycle, electoral document controls, CSV/PDF/ZIP exports, access rules and notifications. Scrum leadership: team velocity +15%.',
         stack: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'GitLab CI/CD', 'Jira'],
       },
       {
@@ -406,6 +424,24 @@ const en: Content = {
         summary:
           'Nationwide redesign of the address-update journey: sync/async propagation to core banking, postal validation, regulatory audit trail. Quality strengthened with JUnit/Mockito and SonarQube gates.',
         stack: ['Java', 'Spring Boot', 'Angular', 'Oracle', 'Jenkins', 'SonarQube', 'JUnit'],
+      },
+      {
+        client: 'Personal project',
+        role: 'Fullstack Java · RAG architecture',
+        period: '2025 – 2026',
+        title: 'Intelligent Document Assistant — RAG application',
+        summary:
+          'Design and development of an intelligent API based on a RAG (Retrieval-Augmented Generation) architecture: PDF document ingestion, vector indexing and semantic search to generate contextualised answers with an LLM. Spring AI and Ollama integration, embeddings stored in PostgreSQL (pgvector), Docker containerisation.',
+        stack: [
+          'Java 21',
+          'Spring Boot',
+          'Spring AI',
+          'Ollama',
+          'PostgreSQL',
+          'pgvector',
+          'Docker',
+          'RAG',
+        ],
       },
     ],
     also: {
