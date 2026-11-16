@@ -1,46 +1,48 @@
 :root {
-  /* UI UX Pro Max — Banking/Traditional Finance + Swiss (see docs/pro-max-design.md) */
-  --color-primary: #0f172a;
-  --color-on-primary: #ffffff;
-  --color-secondary: #1e3a8a;
-  --color-on-secondary: #ffffff;
-  --color-accent: #a16207;
-  --color-on-accent: #ffffff;
-  --color-background: #f8fafc;
-  --color-foreground: #020617;
-  --color-card: #ffffff;
-  --color-muted: #e8ecf1;
-  --color-muted-foreground: #475569;
-  --color-border: #e2e8f0;
-  --color-ring: #0f172a;
+  /* Metrology / calibration certificate — Impeccable replacement world */
+  --color-primary: #12181f;
+  --color-on-primary: #f4f7f9;
+  --color-secondary: #0c6e8c;
+  --color-on-secondary: #f4f7f9;
+  --color-accent: #0c6e8c;
+  --color-on-accent: #f4f7f9;
+  --color-background: #eef2f5;
+  --color-foreground: #12181f;
+  --color-card: #f7f9fb;
+  --color-muted: #d5dde4;
+  --color-muted-foreground: #4a5560;
+  --color-border: #c5ced6;
+  --color-ring: #0c6e8c;
 
-  /* Semantic aliases used by components */
   --paper: var(--color-background);
-  --paper-deep: #eef2f7;
+  --paper-deep: #e2e8ee;
   --surface: var(--color-card);
   --ink: var(--color-primary);
-  --ink-soft: #1e293b;
+  --ink-soft: #24303a;
   --muted: var(--color-muted-foreground);
   --accent: var(--color-accent);
-  --accent-press: #854d0e;
+  --accent-press: #095a73;
   --link: var(--color-secondary);
-  --line: color-mix(in srgb, var(--color-border) 85%, var(--color-primary));
-  --fill: color-mix(in srgb, var(--color-primary) 4%, transparent);
+  --line: color-mix(in srgb, var(--color-border) 80%, var(--color-primary));
+  --fill: color-mix(in srgb, var(--color-secondary) 7%, transparent);
   --white: #ffffff;
   --selection: color-mix(in srgb, var(--color-secondary) 22%, transparent);
+  --instrument: #0c6e8c;
+  --panel: #f7f9fb;
+  --etched: color-mix(in srgb, var(--color-primary) 6%, transparent);
 
-  --font-display: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+  --font-display: 'Archivo', 'Segoe UI', sans-serif;
+  --font-body: 'Archivo', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 
   --max: 1200px;
-  --radius: 0;
+  --radius: 2px;
   --space-section: clamp(4.75rem, 9vw, 7.25rem);
   --chrome-h: 3.5rem;
-  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --press: 90ms ease-out;
   --hairline: 1px solid var(--color-border);
-  --focus-ring: 3px solid var(--color-secondary);
+  --focus-ring: 2px solid var(--color-secondary);
 }
 
 *,
@@ -67,16 +69,23 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.55;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   background-color: var(--paper);
-  /* Swiss paper atmosphere — cool wash, not flat single color */
+  /* Lab paper: cool wash + faint certificate ruling */
   background-image:
     linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      color-mix(in srgb, var(--color-secondary) 6%, transparent) 31px,
+      color-mix(in srgb, var(--color-secondary) 6%, transparent) 32px
+    );
   background-attachment: fixed;
   min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-feature-settings: 'ss01' on, 'cv11' on;
 }
 
 ::selection {
@@ -118,19 +127,19 @@ h1 {
   font-size: clamp(2.75rem, 9vw, 5rem);
   font-weight: 700;
   line-height: 0.98;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: clamp(1.85rem, 3.4vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
 h3 {
   font-size: clamp(1.15rem, 2vw, 1.4rem);
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.25;
   letter-spacing: -0.015em;
 }
@@ -197,8 +206,12 @@ ul {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--ink);
-    opacity: 0.9;
+    background: linear-gradient(
+      180deg,
+      var(--instrument) 0%,
+      color-mix(in srgb, var(--ink) 70%, var(--instrument)) 100%
+    );
+    opacity: 0.85;
     pointer-events: none;
     transform-origin: top center;
     transform: scaleY(0);
@@ -206,7 +219,7 @@ ul {
 
   .ledger.is-drawn .ledger__rule {
     transform: scaleY(1);
-    transition: transform 0.65s var(--ease);
+    transition: transform 0.7s var(--ease);
   }
 
   .ledger .wrap {
@@ -220,12 +233,13 @@ ul {
 }
 
 .section--alt {
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border-block: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
 }
 
 .section__title {
   font-size: clamp(1.85rem, 3.4vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.1;
   letter-spacing: -0.025em;
   margin-bottom: 0.85rem;
@@ -249,7 +263,7 @@ ul {
   border: 1px solid transparent;
   font-family: var(--font-body);
   font-size: 0.98rem;
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
@@ -303,18 +317,20 @@ ul {
 
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(10px);
+  filter: blur(2px);
   transition:
-    opacity 0.4s var(--ease),
-    transform 0.4s var(--ease);
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease),
+    filter 0.45s var(--ease);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
-/* Stagger ledger rows without GSAP overshoot */
 .project.reveal {
   transition-delay: 0ms;
 }
@@ -340,6 +356,7 @@ ul {
   .project.reveal {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
     transition-delay: 0ms;
   }

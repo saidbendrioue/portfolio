@@ -174,7 +174,7 @@ const fr: Content = {
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'TanStack Query'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
       },
       {
         label: 'Livraison',
@@ -187,7 +187,7 @@ const fr: Content = {
     ],
     stack: {
       title: 'Combinaisons production',
-      lead: 'Quinze binômes éprouvés : chaque paire livre un résultat opérationnel concret.',
+      lead: 'Quinze binômes étalonnés : chaque paire livre une lecture opérationnelle concrète.',
       filterAll: 'Toutes',
       attributes: [
         { id: 'scalable', label: 'Scalable' },
@@ -286,11 +286,11 @@ const fr: Content = {
           attributes: ['maintainable'],
         },
         {
-          id: 'react-tanstack',
-          left: 'react',
-          right: 'tanstackquery',
-          outcome: 'Data frontend',
-          detail: 'Données serveur fiables, mises en cache et à jour dans React.',
+          id: 'angular-rxjs',
+          left: 'angular',
+          right: 'rxjs',
+          outcome: 'Data frontend réactive',
+          detail: 'Flux réactifs Angular + RxJS pour des données serveur cohérentes et à jour.',
           attributes: ['maintainable', 'scalable'],
         },
         {
@@ -427,7 +427,7 @@ const en: Content = {
       },
       {
         label: 'Frontend',
-        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'TanStack Query'],
+        items: ['Angular', 'TypeScript', 'RxJS', 'NgRx'],
       },
       {
         label: 'Delivery',
@@ -440,7 +440,7 @@ const en: Content = {
     ],
     stack: {
       title: 'Production combinations',
-      lead: 'Fifteen proven pairings — each duo delivers a concrete operational outcome.',
+      lead: 'Fifteen calibrated pairings — each duo delivers a concrete operational reading.',
       filterAll: 'All',
       attributes: [
         { id: 'scalable', label: 'Scalable' },
@@ -539,11 +539,11 @@ const en: Content = {
           attributes: ['maintainable'],
         },
         {
-          id: 'react-tanstack',
-          left: 'react',
-          right: 'tanstackquery',
-          outcome: 'Frontend data layer',
-          detail: 'Reliable, cached, and up-to-date server state in React.',
+          id: 'angular-rxjs',
+          left: 'angular',
+          right: 'rxjs',
+          outcome: 'Reactive frontend data',
+          detail: 'Angular + RxJS reactive streams for coherent, up-to-date server state.',
           attributes: ['maintainable', 'scalable'],
         },
         {

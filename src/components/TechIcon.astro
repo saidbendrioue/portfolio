@@ -33,16 +33,20 @@ const viewBox = icon.viewBox ?? '0 0 24 24';
   .tech-icon {
     display: inline-grid;
     place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.55rem;
+    height: 2.55rem;
     color: var(--ink);
-    background: color-mix(in srgb, var(--color-primary) 4%, transparent);
-    border: 1px solid var(--color-border);
+    background:
+      linear-gradient(145deg, color-mix(in srgb, #fff 70%, var(--panel)), var(--etched));
+    border: 1px solid color-mix(in srgb, var(--color-border) 80%, var(--instrument));
+    box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 70%, transparent);
+    border-radius: var(--radius);
     flex-shrink: 0;
     transition:
       color 200ms var(--ease),
       background-color 200ms var(--ease),
-      border-color 200ms var(--ease);
+      border-color 200ms var(--ease),
+      box-shadow 200ms var(--ease);
   }
 
   .tech-icon svg {
