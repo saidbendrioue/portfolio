@@ -167,17 +167,21 @@ const { stack } = content.skills;
 
   .stack {
     margin-top: 3.25rem;
-    padding-top: 2.5rem;
-    border-top: 1px dashed var(--color-border);
+    padding: 1.75rem 1.25rem 1.25rem;
+    border: 1px solid var(--color-border);
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, #fff), var(--surface));
+    box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 80%, transparent);
+    border-radius: var(--radius);
   }
 
   .stack__intro {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.35rem;
   }
 
   .stack__title {
     font-size: clamp(1.25rem, 2.2vw, 1.55rem);
-    font-weight: 600;
+    font-weight: 650;
     letter-spacing: -0.02em;
     margin-bottom: 0.55rem;
   }
@@ -192,39 +196,43 @@ const { stack } = content.skills;
   .stack__filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.15rem 0.1rem;
-    margin-bottom: 1.35rem;
-    border-bottom: var(--hairline);
-    padding-bottom: 0.15rem;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+    padding: 0.35rem;
+    background: var(--etched);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
   }
 
   .stack__filter {
     appearance: none;
     background: transparent;
-    border: 0;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
+    border: 1px solid transparent;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 0.7rem 0.7rem 0.65rem;
-    min-height: 2.75rem;
+    padding: 0.55rem 0.7rem;
+    min-height: 2.5rem;
+    border-radius: var(--radius);
     cursor: pointer;
     transition:
       color 180ms var(--ease),
+      background-color 180ms var(--ease),
       border-color 180ms var(--ease);
   }
 
   .stack__filter:hover {
     color: var(--ink);
+    background: color-mix(in srgb, #fff 55%, transparent);
   }
 
   .stack__filter.is-active {
-    color: var(--ink);
-    border-bottom-color: var(--color-accent);
+    color: var(--color-on-accent);
+    background: var(--instrument);
+    border-color: var(--instrument);
   }
 
   .stack__grid {
@@ -318,12 +326,29 @@ const { stack } = content.skills;
   }
 
   .combo__outcome {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--link);
+    color: var(--instrument);
+    background: color-mix(in srgb, var(--instrument) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--instrument) 28%, var(--color-border));
+    padding: 0.22rem 0.45rem;
+    border-radius: var(--radius);
+  }
+
+  .combo__outcome::before {
+    content: '';
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: var(--instrument);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--instrument) 25%, transparent);
   }
 
   .combo__detail {

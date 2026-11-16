@@ -26,3 +26,10 @@ dist
 
 # Local agent skills (installed under .cursor/skills; too heavy / vendor)
 .cursor/skills/
+
+# Impeccable / agent local installs
+.agents/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/config.local.json

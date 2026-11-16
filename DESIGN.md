@@ -1,30 +1,39 @@
-# DESIGN.md — Said Bendrioue portfolio (UI UX Pro Max)
+# DESIGN.md — Said Bendrioue portfolio
 
-**World:** Sealed Trust Register × Banking Swiss  
-**Source:** UI UX Pro Max (`design-system/said-bendrioue/MASTER.md`)  
-**Dials:** variance 7 · motion 5 · density 4  
-**Rollback (pre Pro Max):** `f8066d28ae23fa5d604d7344351e9155d869646f`
+<!-- impeccable:design-system -->
 
-Full rationale: store doc `pro-max-design.md`.
+**World:** Metrology / calibration certificate  
+**Mode:** Experience (portfolio)  
+**Source:** Impeccable concept-seed `seed:593b92ec5e595542` (assigned grounded candidate 3)  
+**Replaces:** Sealed Trust Register × Banking Swiss (IBM Plex / gold CTA)
 
 ## Style
-Minimalism & Swiss Style + Accessible & Ethical. Pattern: Trust & Authority. IA: Hero → About → Projects → Skills (groups + production combinations with tech icons) → Contact.
 
-## Colors (Banking / Traditional Finance)
+Cool laboratory paper with certificate ruling, etched instrument panels, cobalt readout accents. Precision over warmth; measured pairings over decorative cards.
+
+## Colors
+
 | Role | Hex |
 |---|---|
-| Primary | `#0F172A` |
-| Secondary | `#1E3A8A` |
-| Accent/CTA | `#A16207` (CTA only) |
-| Background | `#F8FAFC` |
-| Foreground | `#020617` |
-| Muted FG | `#475569` |
-| Border | `#E2E8F0` |
-
-Rejected: Fintech/Crypto purple `#8B5CF6`.
+| Primary / ink | `#12181F` |
+| Secondary / instrument | `#0C6E8C` |
+| Accent / CTA | `#0C6E8C` |
+| Background | `#EEF2F5` |
+| Surface | `#F7F9FB` |
+| Foreground | `#12181F` |
+| Muted FG | `#4A5560` |
+| Border | `#C5CED6` |
 
 ## Typography
-**Financial Trust:** IBM Plex Sans (heading + body) · IBM Plex Mono (meta). Radius `0`.
+
+- **Display / body:** Archivo
+- **Readings / meta:** JetBrains Mono
+- Radius `2px`
 
 ## Motion
-CSS hero settle + ledger draw + staggered project reveals. No GSAP overshoot on ledger rows. Honor `prefers-reduced-motion`.
+
+Hero settle + ledger draw + soft blur reveal. Instrument filter press and combo expand. Honor `prefers-reduced-motion`.
+
+## Skills / combinations
+
+Binary tech pairings as calibrated instrument rows: etched icon wells, mono outcome readouts, channel filters, expand for detail. Frontend pair: Angular + RxJS (not React).
